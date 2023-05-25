@@ -78,14 +78,16 @@ function Header({ level = 1 }) {
     }
   }, [level])
 
+  // text-shadow-lg shadow-slate-500
+
   return (
-    <header className='pt-2 pb-4'>
-      <div className='w-fit m-auto'>
-        <h1 className='flex flex-wrap justify-center gap-3 py-1 text-3xl text-center'>
+    <header className='pb-6 pt-4'>
+      <div className='m-auto w-fit'>
+        <div className='flex flex-wrap justify-center gap-3 py-1 text-center text-3xl'>
           {"GERALT'S"}
-          <span className='text-black text-stroke-title'>MEMORY</span>
-        </h1>
-        <span className='block mb-1 border-b border-neutral-700 w-full'></span>
+          <span className='text-stroke-title text-transparent'>MEMORY</span>
+        </div>
+        <span className='mb-2 mt-1 block w-full border-b border-neutral-700'></span>
       </div>
       <p className={currentLevelStyle}>{titleProperties.text}</p>
     </header>

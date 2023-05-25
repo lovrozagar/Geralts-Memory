@@ -1,10 +1,10 @@
-/** @type {import('tailwindcss').Config} */
-import plugin from 'tailwindcss/plugin'
+import plugin from 'tailwindcss'
 
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
+      widephone: '480px',
       tablet: '640px',
       laptop: '1024px',
     },

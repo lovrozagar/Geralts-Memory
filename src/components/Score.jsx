@@ -4,7 +4,7 @@ import { AppContext } from '../App'
 
 function Score() {
   return (
-    <section className='flex justify-evenly mt-3 mb-10 mx-6 tablet:mx-0'>
+    <section className='gap flex flex-wrap-reverse justify-center gap-x-8 gap-y-4 pb-4 widephone:mx-0 widephone:justify-evenly'>
       <DisplayBubble type='recall' />
       <DisplayBubble type='best' />
     </section>
@@ -13,16 +13,18 @@ function Score() {
 
 DisplayBubble.propTypes = {
   type: PropTypes.string.isRequired,
+  recall: PropTypes.number,
+  best: PropTypes.number,
 }
 
 function DisplayBubble({ type }) {
   const { recall, best } = useContext(AppContext)
   const data = type === 'recall' ? `Recall: ${recall}` : `Best: ${best}`
   const props =
-    type === 'recall' ? { datarecall: 'true' } : { databest: 'true' }
+    type === 'recall' ? { 'data-recall': 'true' } : { 'data-best': 'true' }
 
   const baseStyling =
-    'text-center px-5 py-2 w-[150px] rounded-lg bg-neutral-1000 transition-all'
+    'text-center px-5 py-2 w-full max-w-[160px] rounded-lg transition-all bg-black'
   const boxShadow =
     type === 'recall'
       ? 'shadow-[0_0_40px_-8px_rgba(226,232,240,0.3)]'

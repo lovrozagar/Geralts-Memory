@@ -6,14 +6,17 @@ import Tilt from 'react-parallax-tilt'
 Card.propTypes = {
   image: PropTypes.string.isRequired,
   shown: PropTypes.bool.isRequired,
-  setShown: PropTypes.func.isRequired,
+  intractable: PropTypes.bool,
   onClick: PropTypes.func,
 }
 
 function Card({ image, shown, intractable, onClick }) {
-  console.log('card')
-
   const [source, setSource] = useState({})
+  const [cardRefresh, setCardRefresh] = useState()
+
+  useEffect(() => {
+    setCardRefresh((prevRefresh) => prevRefresh + 1)
+  }, [shown])
 
   useEffect(() => {
     console.log('eff')
@@ -28,21 +31,16 @@ function Card({ image, shown, intractable, onClick }) {
 
   return (
     <button
+      key={cardRefresh}
       className={
         intractable
-          ? 'relative flex rounded outline-none overflow-hidden select-none active:scale-95 focus:scale-105 focus:-top-2 focus:rotate-2 focus:brightness-110 hover:scale-105'
-          : 'flex  rounded outline-none overflow-hidden select-none pointer-events-none'
+          ? 'relative flex select-none overflow-hidden rounded outline-none hover:scale-105 focus:-top-2 focus:rotate-2 focus:scale-105 focus:brightness-110 active:scale-95'
+          : 'pointer-events-none  flex select-none overflow-hidden rounded outline-none'
       }
       tabIndex={0}
       onClick={onClick}
     >
-      <Tilt
-        glareEnable
-        glareMaxOpacity={0.375}
-        glareColor='#ffffff'
-        glarePosition='all'
-        glareBorderRadius='8px'
-      >
+      <Tilt glareEnable={false}>
         <Transition
           as={Fragment}
           show={shown}
@@ -54,7 +52,7 @@ function Card({ image, shown, intractable, onClick }) {
           leaveTo='opacity-0 scale-95 '
         >
           <div className='relative -z-10'>
-            <div className='py-[0.3rem] px-1 h-60 tablet:h-72 laptop:h-80 aspect-[10/14] bg-border bg-contain bg-no-repeat'>
+            <div className='aspect-[10/14] h-60 bg-border bg-contain bg-no-repeat px-1 py-[0.3rem] tablet:h-72 laptop:h-80'>
               <img
                 className='relative -z-10 rounded-lg'
                 src={source.src}
