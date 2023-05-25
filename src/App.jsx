@@ -173,7 +173,7 @@ function App() {
       <div className='m-auto grid max-w-5xl px-2'>
         <Header level={level} />
         <Score />
-        <div className='m-auto flex w-fit flex-wrap justify-center gap-3 pb-20 pt-4 laptop:gap-4'>
+        <div className='m-auto flex w-fit flex-wrap justify-center gap-3 pb-20 pt-2 widephone:pt-4 laptop:gap-4'>
           {shuffledCards.map((card) => (
             <Card
               key={card.id}

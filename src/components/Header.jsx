@@ -81,7 +81,7 @@ function Header({ level = 1 }) {
   // text-shadow-lg shadow-slate-500
 
   return (
-    <header className='pb-6 pt-4'>
+    <header className='py-4 widephone:pb-6'>
       <div className='m-auto w-fit'>
         <div className='flex flex-wrap justify-center gap-3 py-1 text-center text-3xl'>
           {"GERALT'S"}

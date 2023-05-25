@@ -52,7 +52,7 @@ function Card({ image, shown, intractable, onClick }) {
           leaveTo='opacity-0 scale-95 '
         >
           <div className='relative -z-10'>
-            <div className='aspect-[10/14] h-60 bg-border bg-contain bg-no-repeat px-1 py-[0.3rem] tablet:h-72 laptop:h-80'>
+            <div className='aspect-[10/14] h-56 bg-border bg-contain bg-no-repeat px-1 py-[0.3rem] tablet:h-72 laptop:h-80'>
               <img
                 className='relative -z-10 rounded-lg'
                 src={source.src}

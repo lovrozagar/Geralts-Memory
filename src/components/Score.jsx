@@ -4,7 +4,7 @@ import { AppContext } from '../App'
 
 function Score() {
   return (
-    <section className='gap flex flex-wrap-reverse justify-center gap-x-8 gap-y-4 pb-4 widephone:mx-0 widephone:justify-evenly'>
+    <section className='gap flex flex-wrap-reverse justify-center gap-x-4 gap-y-4 pb-4 widephone:mx-0 widephone:justify-evenly'>
       <DisplayBubble type='recall' />
       <DisplayBubble type='best' />
     </section>

@@ -57,6 +57,7 @@ function LoseDialog({ open, onClose, isWin }) {
                     type='button'
                     className='inline-flex w-full justify-center rounded-md border border-none bg-green-100 px-4 py-2 text-lg font-medium text-green-900 outline-green-200 hover:bg-green-200 focus-visible:outline focus-visible:outline-offset-2 '
                     onClick={onClose}
+                    style={{ transform: 'translateZ(0)' }}
                   >
                     {isWin ? 'Easy' : 'Damn'}
                   </button>
