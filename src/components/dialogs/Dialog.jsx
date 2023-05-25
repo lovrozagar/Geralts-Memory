@@ -5,9 +5,10 @@ import { Dialog, Transition } from '@headlessui/react'
 LoseDialog.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  isWin: PropTypes.bool.isRequired,
 }
 
-function LoseDialog({ open, onClose }) {
+function LoseDialog({ open, onClose, isWin }) {
   return (
     <Transition appear show={open} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={onClose}>
@@ -37,25 +38,27 @@ function LoseDialog({ open, onClose }) {
               <Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-neutral-900 p-6 text-left align-middle shadow-xl transition-all'>
                 <Dialog.Title
                   as='h3'
-                  className='text-lg font-medium leading-6 text-green-100'
+                  className='text-2xl font-medium leading-6 text-white'
                 >
-                  You lose
+                  {isWin ? 'You win' : 'You lose'}
                 </Dialog.Title>
                 <div className='mt-2'>
-                  <p className='text-sm text-gray-500'>
-                    {`Looks like you've been dealt the 'Loser's Curse'. Even Geralt
+                  <p className='text-lg text-gray-500'>
+                    {isWin
+                      ? `Looks like fortune favors the Witcher. Even the toughest battles can be won with a well-played Gwent hand. Keep harnessing your strategic prowess and let victory be your faithful companion!`
+                      : `Looks like you've been dealt the 'Loser's Curse'. Even Geralt
                     has his off days. Keep shuffling those cards and turn the
-                    tides in your favor!"`}
+                    tides in your favor!`}
                   </p>
                 </div>
 
                 <div className='mt-4'>
                   <button
                     type='button'
-                    className='inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2'
+                    className='inline-flex w-full justify-center rounded-md border border-none bg-green-100 px-4 py-2 text-lg font-medium text-green-900 outline-green-200 hover:bg-green-200 focus-visible:outline focus-visible:outline-offset-2 '
                     onClick={onClose}
                   >
-                    Try again
+                    {isWin ? 'Easy' : 'Damn'}
                   </button>
                 </div>
               </Dialog.Panel>
